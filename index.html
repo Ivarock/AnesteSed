@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AnesteSed: Calculadora de Sedación</title>
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#020617">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Tailwind CSS v3.4.17 compilado e incrustado: la app no depende de internet -->
+    <style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.mx-auto{margin-left:auto;margin-right:auto}.mb-0\.5{margin-bottom:.125rem}.mb-1{margin-bottom:.25rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-3{margin-top:.75rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-4{height:1rem}.min-h-screen{min-height:100vh}.w-24{width:6rem}.w-4{width:1rem}.w-full{width:100%}.max-w-md{max-width:28rem}.cursor-pointer{cursor:pointer}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-1\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.375rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.375rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-amber-500\/40{border-color:rgba(245,158,11,.4)}.border-red-500\/50{border-color:rgba(239,68,68,.5)}.border-sky-500{--tw-border-opacity:1;border-color:rgb(14 165 233/var(--tw-border-opacity,1))}.border-sky-500\/40{border-color:rgba(14,165,233,.4)}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.bg-amber-950\/40{background-color:rgba(69,26,3,.4)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.bg-pink-600{--tw-bg-opacity:1;background-color:rgb(219 39 119/var(--tw-bg-opacity,1))}.bg-red-950\/60{background-color:rgba(69,10,10,.6)}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233/var(--tw-bg-opacity,1))}.bg-sky-950\/40{background-color:rgba(8,47,73,.4)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.p-1{padding:.25rem}.p-1\.5{padding:.375rem}.p-2{padding:.5rem}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-4{padding:1rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-1{padding-bottom:.25rem}.pb-16{padding-bottom:4rem}.pb-3{padding-bottom:.75rem}.pt-1{padding-top:.25rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.font-sans{font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xs{font-size:.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36/var(--tw-text-opacity,1))}.text-red-200{--tw-text-opacity:1;color:rgb(254 202 202/var(--tw-text-opacity,1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113/var(--tw-text-opacity,1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252/var(--tw-text-opacity,1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248/var(--tw-text-opacity,1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-950{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.subpixel-antialiased{-webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto}.accent-sky-500{accent-color:#0ea5e9}.opacity-40{opacity:.4}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-red-500{--tw-ring-opacity:1;--tw-ring-color:rgb(239 68 68/var(--tw-ring-opacity,1))}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.hover\:bg-emerald-600:hover{--tw-bg-opacity:1;background-color:rgb(5 150 105/var(--tw-bg-opacity,1))}.hover\:bg-pink-700:hover{--tw-bg-opacity:1;background-color:rgb(190 24 93/var(--tw-bg-opacity,1))}.hover\:bg-sky-600:hover{--tw-bg-opacity:1;background-color:rgb(2 132 199/var(--tw-bg-opacity,1))}.hover\:text-slate-200:hover{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}</style>
+    <style>
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type=number] { -moz-appearance: textfield; }
+        body { -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; }
+        input, select, textarea { -webkit-user-select: text; user-select: text; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans pb-16 subpixel-antialiased">
+
+    <div class="max-w-md mx-auto px-4 py-6">
+
+        <header class="mb-4 text-center border-b border-slate-800 pb-3">
+            <h1 class="text-2xl font-black tracking-tight text-sky-400">AnesteSed</h1>
+            <p class="text-xs text-slate-400 mt-0.5">Sedación procedimental · Una herramienta de Ivarock</p>
+            <button id="btn-instalar" onclick="instalarApp()" class="hidden mt-3 mx-auto items-center gap-2 bg-sky-500 text-slate-950 text-xs font-black px-4 py-2 rounded-full shadow-xl">📲 Instalar AnesteSed</button>
+            <div id="ayuda-ios" class="hidden mt-3 text-left text-xs text-slate-300 bg-slate-900 border border-slate-800 rounded-xl p-3 space-y-1">
+                <p class="font-bold text-sky-400">Instalar en iPhone / iPad</p>
+                <p>1. Toca el botón <b>Compartir</b> de Safari (cuadro con flecha ↑).</p>
+                <p>2. Elige <b>"Agregar a inicio"</b>.</p>
+            </div>
+        </header>
+
+        <nav class="grid grid-cols-4 gap-1 mb-4 bg-slate-900 p-1 rounded-xl border border-slate-800 text-[10px] font-bold">
+            <button id="btn-tab-paciente" onclick="cambiarTab('paciente')" class="py-2 rounded-lg text-center">👤 PACIENTE</button>
+            <button id="btn-tab-sedacion" onclick="cambiarTab('sedacion')" class="py-2 rounded-lg text-center">💉 SEDACIÓN</button>
+            <button id="btn-tab-antidotos" onclick="cambiarTab('antidotos')" class="py-2 rounded-lg text-center">🛟 ANTÍDOTOS</button>
+            <button id="btn-tab-fuentes" onclick="cambiarTab('fuentes')" class="py-2 rounded-lg text-center">📖 FUENTES</button>
+        </nav>
+
+        <div id="aviso-general" class="hidden mb-4 text-center text-xs font-bold p-2.5 rounded-lg bg-red-950/60 border border-red-500/50 text-red-200"></div>
+
+        <!-- ===================== PACIENTE ===================== -->
+        <div id="tab-paciente" class="space-y-4">
+            <section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl">
+                <h2 class="text-sm font-bold text-slate-300 mb-3 uppercase tracking-wider border-b border-slate-800 pb-1">Datos del paciente</h2>
+                <div class="grid grid-cols-2 gap-3 mb-3">
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Edad</label>
+                        <div class="flex gap-1">
+                            <input type="number" id="edad" value="40" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white text-center" oninput="calcular()">
+                            <select id="edadUnidad" class="bg-slate-950 border border-slate-700 rounded-lg p-1 text-white text-xs" onchange="calcular()">
+                                <option value="a">años</option>
+                                <option value="m">meses</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Sexo</label>
+                        <select id="sexo" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white" onchange="calcular()">
+                            <option value="M">M (Varón)</option>
+                            <option value="F">F (Mujer)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mb-3">
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Peso real (kg)</label>
+                        <input type="number" id="peso" value="70" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white text-center" oninput="calcular()">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Talla (m)</label>
+                        <input type="number" step="0.01" id="talla" value="1.70" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white text-center" oninput="calcular()">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mb-3">
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">Clase ASA</label>
+                        <select id="asa" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white" onchange="calcular()">
+                            <option value="12">ASA I – II</option>
+                            <option value="34">ASA III – IV</option>
+                        </select>
+                    </div>
+                    <div id="cont-peso-ideal-ped" class="hidden">
+                        <label class="block text-xs text-slate-400 mb-1">Peso ideal (kg, si obesidad)</label>
+                        <input type="number" id="pesoIdealPed" placeholder="Opcional" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white text-center" oninput="calcular()">
+                    </div>
+                </div>
+                <label class="flex items-start gap-2 text-xs text-slate-300 cursor-pointer">
+                    <input type="checkbox" id="fragil" class="accent-sky-500 w-4 h-4 mt-0.5" onchange="calcular()">
+                    <span>Paciente frágil, hipovolémico o con compromiso cardiovascular</span>
+                </label>
+            </section>
+
+            <section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-2">
+                <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pesos de dosificación</h2>
+                <div id="out-poblacion" class="bg-slate-950 p-2 rounded border border-slate-800 text-center font-bold text-sky-400"></div>
+                <div id="out-pesos" class="grid grid-cols-2 gap-2 text-slate-300"></div>
+                <div id="out-peso-farmaco" class="bg-slate-950 p-2 rounded border border-slate-800 text-slate-300 space-y-1"></div>
+            </section>
+        </div>
+
+        <!-- ===================== SEDACIÓN ===================== -->
+        <div id="tab-sedacion" class="hidden space-y-4">
+            <section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-3">
+                <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wider border-b border-slate-800 pb-1">1. Nivel de sedación deseado</h2>
+                <div class="grid grid-cols-3 gap-1">
+                    <button id="btn-nivel-minima" onclick="elegirNivel('minima')" class="py-2 rounded-lg font-bold">Mínima</button>
+                    <button id="btn-nivel-moderada" onclick="elegirNivel('moderada')" class="py-2 rounded-lg font-bold">Moderada</button>
+                    <button id="btn-nivel-profunda" onclick="elegirNivel('profunda')" class="py-2 rounded-lg font-bold">Profunda</button>
+                </div>
+                <p id="out-nivel-desc" class="text-slate-400 leading-relaxed"></p>
+                <p id="out-nivel-sugeridos" class="text-slate-300 leading-relaxed"></p>
+            </section>
+
+            <section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-3">
+                <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wider border-b border-slate-800 pb-1">2. Fármacos</h2>
+                <div>
+                    <p class="text-slate-400 mb-1">Combinaciones frecuentes:</p>
+                    <div id="out-presets" class="flex flex-wrap gap-1"></div>
+                </div>
+                <div id="out-farmacos" class="grid grid-cols-2 gap-2"></div>
+                <label class="flex items-start gap-2 text-slate-300 cursor-pointer">
+                    <input type="checkbox" id="dexCarga" class="accent-sky-500 w-4 h-4 mt-0.5" onchange="calcular()">
+                    <span>Dexmedetomidina con dosis de carga (ficha técnica)</span>
+                </label>
+                <p id="out-combinacion" class="hidden text-amber-400 font-bold leading-relaxed"></p>
+            </section>
+
+            <div id="out-tarjetas" class="space-y-4"></div>
+
+            <section class="p-3 rounded-xl bg-amber-950/40 border border-amber-500/40 text-[11px] text-amber-400 font-bold leading-relaxed">
+                ⚠️ Dosis orientativas para titular al efecto, en un entorno monitorizado y con capacidad de rescate de la vía aérea. Si el paciente pasa a un nivel más profundo del deseado, manéjalo según su estado real.
+            </section>
+        </div>
+
+        <!-- ===================== ANTÍDOTOS ===================== -->
+        <div id="tab-antidotos" class="hidden space-y-4">
+            <div id="out-antidotos" class="space-y-4"></div>
+            <section class="p-3 rounded-xl bg-amber-950/40 border border-amber-500/40 text-[11px] text-amber-400 font-bold leading-relaxed">
+                ⚠️ Ambos antídotos duran menos que algunos sedantes y opioides: vigila la re-sedación. No se recomiendan para acelerar la recuperación de rutina, solo para revertir depresión respiratoria o sobresedación.
+            </section>
+        </div>
+
+        <!-- ===================== FUENTES ===================== -->
+        <div id="tab-fuentes" class="hidden space-y-4">
+            <section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-2">
+                <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wider border-b border-slate-800 pb-1">¿Cómo calcula AnesteSed?</h2>
+                <p class="text-slate-400 leading-relaxed">Cada dosis se obtiene multiplicando el rango por kg de la fuente por el <b class="text-sky-400">peso de dosificación</b> del fármaco, y luego se aplican los ajustes por edad, ASA, fragilidad y combinación. El volumen (mL) se calcula con la concentración que elijas en cada tarjeta.</p>
+            </section>
+
+            <section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-3">
+                <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wider border-b border-slate-800 pb-1">Pesos (adultos)</h2>
+                <div class="space-y-1">
+                    <h3 class="font-bold text-sky-400">Peso ideal (Devine)</h3>
+                    <p class="font-mono bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200">Varón: 50 + 0.91 × (talla cm − 152.4)<br>Mujer: 45.5 + 0.91 × (talla cm − 152.4)</p>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-bold text-sky-400">Peso corregido (Bauer)</h3>
+                    <p class="font-mono bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200">PC = PI + 0.4 × (Peso real − PI)</p>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-bold text-sky-400">Peso magro (Janmahasatian)</h3>
+                    <p class="font-mono bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200">Varón: 9270 × Peso ÷ (6680 + 216 × IMC)<br>Mujer: 9270 × Peso ÷ (8780 + 244 × IMC)</p>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-bold text-sky-400">Peso usado en obesidad (IMC ≥ 30)</h3>
+                    <p class="text-slate-300 leading-relaxed">Propofol (bolo), fentanilo y remifentanilo: <b>peso magro</b>. Ketamina: <b>peso ideal</b>. Propofol (infusión) y dexmedetomidina: <b>peso corregido</b>. Midazolam en adultos se dosifica en mg fijos. Con IMC &lt; 30 se usa el peso real.</p>
+                    <p class="text-slate-400 leading-relaxed">En pediatría se usa el peso real; si el niño tiene obesidad, puedes escribir su peso ideal y la app lo usará.</p>
+                </div>
+            </section>
+
+            <section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-2">
+                <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wider border-b border-slate-800 pb-1">Ajustes automáticos</h2>
+                <p class="text-slate-300 leading-relaxed">• <b>Midazolam (adulto):</b> máx. 2.5 mg/dosis y 5 mg total; ≥ 60 años, ASA III–IV o frágil: 1.5 mg/dosis y 3.5 mg total. Con opioide: −30 % (−50 % si ≥ 60 años, ASA III–IV o frágil).</p>
+                <p class="text-slate-300 leading-relaxed">• <b>Propofol:</b> ≥ 65 años, ASA III–IV o frágil → 80 % de la dosis, sin bolos rápidos. Combinado con otro fármaco → rango inicial bajo (0.25–0.5 mg/kg en adultos).</p>
+                <p class="text-slate-300 leading-relaxed">• <b>Fentanilo:</b> combinado con un sedante → máx. 0.5 mcg/kg por dosis.</p>
+                <p class="text-slate-300 leading-relaxed">• <b>Remifentanilo:</b> con otro sedante → dosis a la mitad; &gt; 65 años → −50 % de la dosis inicial.</p>
+                <p class="text-slate-300 leading-relaxed">• <b>Ketamina:</b> con propofol (ketofol) o midazolam → rangos de combinación; ≥ 65 años, ASA III–IV o frágil → 0.25–0.5 mg/kg.</p>
+                <p class="text-slate-300 leading-relaxed">• <b>Dexmedetomidina:</b> carga 0.5 mcg/kg si &gt; 65 años o sedación mínima; con propofol → 0.2–0.4 mcg/kg/h.</p>
+                <p class="text-slate-300 leading-relaxed">• <b>Pediatría:</b> topes por dosis y límites de edad (ketamina contraindicada &lt; 3 meses; midazolam y propofol no establecidos &lt; 6 meses; dexmedetomidina desde 1 mes; remifentanilo sin dosis de sedación pediátrica).</p>
+            </section>
+
+            <section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-2">
+                <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wider border-b border-slate-800 pb-1">Referencias</h2>
+                <p class="text-slate-400 leading-relaxed">• Cruz Correa I. Dosificación de los principales fármacos utilizados en sedación: guía práctica para residentes de Anestesiología (adultos y pediatría). Documento base de esta app.</p>
+                <p class="text-slate-400 leading-relaxed">• American Society of Anesthesiologists. Continuum of Depth of Sedation: Definition of General Anesthesia and Levels of Sedation/Analgesia. ASA; 2019.</p>
+                <p class="text-slate-400 leading-relaxed">• Practice Guidelines for Moderate Procedural Sedation and Analgesia 2018. <i>Anesthesiology</i>. 2018;128:437-79.</p>
+                <p class="text-slate-400 leading-relaxed">• Coté CJ, Wilson S; AAP, AAPD. Guidelines for Monitoring and Management of Pediatric Patients Before, During, and After Sedation for Diagnostic and Therapeutic Procedures. <i>Pediatrics</i>. 2019;143(6):e20191000 (reafirmada en 2025).</p>
+                <p class="text-slate-400 leading-relaxed">• Godwin SA, et al. Clinical policy: procedural sedation and analgesia in the emergency department. <i>Ann Emerg Med</i>. 2014;63:247-58.</p>
+                <p class="text-slate-400 leading-relaxed">• Green SM, Roback MG, Kennedy RM, Krauss B. Clinical practice guideline for emergency department ketamine dissociative sedation: 2011 update. <i>Ann Emerg Med</i>. 2011;57:449-61.</p>
+                <p class="text-slate-400 leading-relaxed">• Merck Manual Professional Edition. How To Do Procedural Sedation and Analgesia.</p>
+                <p class="text-slate-400 leading-relaxed">• Defence Medical Command (UK). Clinical Guidelines for Operations: Procedural sedation. 2026.</p>
+                <p class="text-slate-400 leading-relaxed">• Children's Hospital of Philadelphia. Procedural Sedation: Sedation Medication Guidance (clinical pathway).</p>
+                <p class="text-slate-400 leading-relaxed">• Fichas técnicas (FDA): midazolam inyectable; Diprivan® (propofol); Precedex® (dexmedetomidina); Ultiva® (remifentanilo); naloxona; flumazenil.</p>
+                <p class="text-slate-400 leading-relaxed">• Ingrande J, Lemmens HJM. Dose adjustment of anaesthetics in the morbidly obese. <i>Br J Anaesth</i>. 2010;105 Suppl 1:i16-23.</p>
+                <p class="text-slate-400 leading-relaxed">• Janmahasatian S, et al. Quantification of lean bodyweight. <i>Clin Pharmacokinet</i>. 2005;44:1051-65.</p>
+                <p class="text-slate-400 leading-relaxed">• Devine BJ. Gentamicin therapy. <i>Drug Intell Clin Pharm</i>. 1974;8:650-5. (Peso ideal)</p>
+                <p class="text-slate-400 leading-relaxed">• Bauer LA, et al. Influence of weight on aminoglycoside pharmacokinetics in normal weight and morbidly obese patients. <i>Eur J Clin Pharmacol</i>. 1983;24:643-7. (Peso corregido)</p>
+                <p class="text-slate-400 leading-relaxed">• Gropper MA, et al. <i>Miller's Anesthesia</i>. 9th ed. Elsevier; 2020. · Barash PG, et al. <i>Clinical Anesthesia</i>. Wolters Kluwer. · Urman RD, Ehrenfeld JM. <i>Anestesia de bolsillo</i>.</p>
+                <p class="text-amber-400 font-bold leading-relaxed pt-1">AnesteSed es una herramienta de apoyo para profesionales entrenados: no sustituye el juicio clínico, el protocolo institucional ni la ficha técnica de cada fármaco.</p>
+            </section>
+
+            <section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-3">
+                <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wider border-b border-slate-800 pb-1">Sobre el autor</h2>
+                <div>
+                    <p class="text-base font-black text-sky-400">Dr. Ivanov Cruz Correa</p>
+                    <p class="text-slate-400 leading-relaxed mt-1">Médico con especialización en curso de Anestesiología y Reanimación. Creador de AnesteSed y AnestePro, herramientas de apoyo para el trabajo diario en quirófano.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="https://www.instagram.com/ivarock/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1 py-2.5 rounded-lg bg-pink-600 hover:bg-pink-700 text-white font-bold">📸 Instagram</a>
+                    <a href="https://linktr.ee/Ivarock" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold">🔗 Mis redes</a>
+                </div>
+                <a href="https://ivarock.github.io/AnestePro/" target="_blank" rel="noopener noreferrer" class="block text-center py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold">🏥 Abrir AnestePro (biometría, fluidos y ventilación)</a>
+                <p class="text-center text-slate-500">@ivarock</p>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        window.onerror = function(msg, url, line) { console.error('AnesteSed', line, msg); };
+
+        // ===================== Estado =====================
+        let tabActual = 'paciente';
+        let nivel = 'moderada';
+        const sel = new Set(['midazolam', 'fentanilo']);
+        const conc = {};    // concentración final con la que se calculan los mL
+        const stock = {};   // presentación comercial elegida
+        const modo = {};    // 'stock' | número de dilución | 'custom'
+        const custom = {};  // concentración personalizada
+
+        // stock: presentaciones comerciales · dil: diluciones habituales · jer: volumen de la jeringa para preparar
+        const FARMACOS = {
+            midazolam:  { nombre: 'Midazolam', tipo: 'Benzodiacepina · ansiolisis y amnesia, sin analgesia', u: 'mg',
+                          stock: [[5, '5 mg/mL (15 mg/3 mL · 5 mg/1 mL)'], [1, '1 mg/mL (5 mg/5 mL)']], dil: [1, 0.5], def: 1, jer: 10 },
+            fentanilo:  { nombre: 'Fentanilo', tipo: 'Opioide · analgesia, no es un sedante puro', u: 'mcg',
+                          stock: [[50, '50 mcg/mL (0.5 mg/10 mL)']], dil: [25, 10], def: 'stock', jer: 10 },
+            propofol:   { nombre: 'Propofol', tipo: 'Hipnótico · sin analgesia; puede llevar rápido a sedación profunda', u: 'mg',
+                          stock: [[10, '1 % (10 mg/mL)'], [20, '2 % (20 mg/mL)']], dil: [], def: 'stock', jer: 10 },
+            ketamina:   { nombre: 'Ketamina', tipo: 'Disociativo · analgesia y sedación', u: 'mg',
+                          stock: [[50, '50 mg/mL (500 mg/10 mL)'], [100, '100 mg/mL'], [10, '10 mg/mL']], dil: [10, 5, 1], def: 10, jer: 10 },
+            dexmedetomidina: { nombre: 'Dexmedetomidina', tipo: 'Agonista α2 · sedación cooperativa, menor depresión respiratoria', u: 'mcg',
+                          stock: [[100, '100 mcg/mL (200 mcg/2 mL)'], [4, '4 mcg/mL (premezclada)']], dil: [4, 8], def: 4, jer: 50 },
+            remifentanilo: { nombre: 'Remifentanilo', tipo: 'Opioide ultracorto · solo en infusión titulada', u: 'mcg', polvo: true,
+                          stock: [[1, 'Vial de 1 mg (polvo)'], [2, 'Vial de 2 mg (polvo)'], [5, 'Vial de 5 mg (polvo)']], dil: [50, 25, 20], def: 50 }
+        };
+        function resolverConc(k) {
+            const d = FARMACOS[k], st = stock[k], m = modo[k];
+            if (d.polvo) return m === 'custom' ? custom[k] : m;
+            if (m === 'stock') return st;
+            if (m === 'custom') return custom[k];
+            return m;
+        }
+        // Concentración usable para calcular mL (NaN si es inválida → no se muestran volúmenes)
+        function concUsable(k) {
+            const c = resolverConc(k), d = FARMACOS[k];
+            return (c > 0 && (d.polvo || c <= stock[k] + 1e-9)) ? c : NaN;
+        }
+        Object.keys(FARMACOS).forEach(k => {
+            const d = FARMACOS[k];
+            stock[k] = d.stock[0][0];
+            modo[k] = d.def;
+            custom[k] = d.polvo ? 50 : d.stock[0][0];
+            conc[k] = concUsable(k);
+        });
+
+        const NIVELES = {
+            minima:   { desc: 'Mínima (ansiolisis): responde normalmente a la voz. Ventilación y función cardiovascular conservadas.',
+                        ad: 'Midazolam titulado o dexmedetomidina sin carga.',
+                        ped: 'Midazolam oral o intranasal, o dexmedetomidina intranasal.' },
+            moderada: { desc: 'Moderada: responde de forma intencionada a la voz o a un estímulo táctil ligero. Ventilación espontánea adecuada.',
+                        ad: 'Midazolam ± fentanilo, propofol a dosis bajas, dexmedetomidina, ketamina subdisociativa (analgesia) o remifentanilo en infusión.',
+                        ped: 'Midazolam IV ± fentanilo, ketamina subdisociativa o dexmedetomidina.' },
+            profunda: { desc: 'Profunda: responde solo a estímulos repetidos o dolorosos. La ventilación puede ser inadecuada: debe existir capacidad de rescate de la vía aérea.',
+                        ad: 'Propofol ± fentanilo, ketamina disociativa o ketofol. Dexmedetomidina y midazolam no son ideales para profundizar rápido.',
+                        ped: 'Propofol ± fentanilo, ketamina IV/IM o ketofol, por personal entrenado en sedación profunda pediátrica.' }
+        };
+
+        const PRESETS = [
+            { n: 'Midazolam + Fentanilo', f: ['midazolam', 'fentanilo'] },
+            { n: 'Propofol + Fentanilo', f: ['propofol', 'fentanilo'] },
+            { n: 'Ketofol', f: ['ketamina', 'propofol'] },
+            { n: 'Ketamina + Midazolam', f: ['ketamina', 'midazolam'] },
+            { n: 'Dexmedetomidina + Propofol', f: ['dexmedetomidina', 'propofol'] }
+        ];
+
+        // ===================== Utilidades =====================
+        const $ = id => document.getElementById(id);
+        function fmt(x) {
+            if (!isFinite(x)) return '—';
+            const a = Math.abs(x);
+            const d = a < 0.1 ? 3 : a < 1 ? 2 : a < 10 ? 1 : 0;
+            return Number(x.toFixed(d)).toString();
+        }
+        function rango(a, b) { return (Math.abs(a - b) < 1e-9) ? fmt(a) : fmt(a) + '–' + fmt(b); }
+
+        // Bolo por kg: [a,b] u/kg × peso × factor, con tope por dosis
+        function boloKg(a, b, uKg, w, u, c, f = 1, tope = Infinity) {
+            let lo = Math.min(a * w * f, tope), hi = Math.min(b * w * f, tope);
+            const ml = (c > 0) ? ` · ${rango(lo / c, hi / c)} mL${hi / c < 0.1 ? ' <span class="text-amber-400 font-bold">(volumen muy pequeño: diluir)</span>' : ''}` : '';
+            const fTxt = f !== 1 ? ` × ${fmt(f)}` : '';
+            const topeTxt = (b * w * f > tope) ? ` (tope ${fmt(tope)} ${u})` : '';
+            return `${rango(a, b)} ${uKg}${fTxt} → <b>${rango(lo, hi)} ${u}</b>${ml}${topeTxt}`;
+        }
+        // Bolo en dosis fija (mg)
+        function boloFijo(a, b, u, c, f = 1, tope = Infinity) {
+            let lo = Math.min(a * f, tope), hi = Math.min(b * f, tope);
+            const ml = c ? ` · ${rango(lo / c, hi / c)} mL` : '';
+            return `<b>${rango(lo, hi)} ${u}</b>${ml}`;
+        }
+        // Infusión mcg/kg/min → mL/h ; cMgMl en mg/mL (propofol) o mcg/mL
+        function infMin(a, b, w, c, f = 1, cEnMg = false) {
+            const lo = a * f, hi = b * f;
+            const mlh = x => (x * w * 60) / (cEnMg ? c * 1000 : c);
+            return `${rango(lo, hi)} mcg/kg/min → <b>${rango(mlh(lo), mlh(hi))} mL/h</b>`;
+        }
+        // Infusión mcg/kg/h → mL/h
+        function infHora(a, b, w, c, f = 1) {
+            const lo = a * f, hi = b * f;
+            return `${rango(lo, hi)} mcg/kg/h → <b>${rango(lo * w / c, hi * w / c)} mL/h</b>`;
+        }
+
+        // ===================== Paciente =====================
+        function leerPaciente() {
+            const edadNum = parseFloat($('edad').value);
+            const meses = $('edadUnidad').value === 'm' ? edadNum : edadNum * 12;
+            const anios = meses / 12;
+            const sexo = $('sexo').value;
+            const peso = parseFloat($('peso').value);
+            const talla = parseFloat($('talla').value);
+            const asa34 = $('asa').value === '34';
+            const fragil = $('fragil').checked;
+            const adulto = anios >= 18;
+            const p = { meses, anios, sexo, peso, talla, asa34, fragil, adulto };
+
+            if (adulto) {
+                const cm = talla * 100;
+                p.pi = (sexo === 'M' ? 50 : 45.5) + 0.91 * (cm - 152.4);
+                p.imc = peso / (talla * talla);
+                p.pc = p.pi + 0.4 * (peso - p.pi);
+                p.lbw = sexo === 'M' ? (9270 * peso) / (6680 + 216 * p.imc) : (9270 * peso) / (8780 + 244 * p.imc);
+                p.obeso = p.imc >= 30;
+                p.w = {
+                    real: peso,
+                    magro: p.obeso ? p.lbw : peso,
+                    ideal: p.obeso ? p.pi : peso,
+                    corregido: p.obeso ? p.pc : peso
+                };
+            } else {
+                const piPed = parseFloat($('pesoIdealPed').value);
+                const wPed = (piPed > 0 && piPed < peso) ? piPed : peso;
+                p.pesoPed = wPed;
+                p.obeso = wPed !== peso;
+                p.w = { real: wPed, magro: wPed, ideal: wPed, corregido: wPed };
+            }
+            p.mayor60 = p.anios >= 60;
+            p.mayor65 = p.anios > 65;
+            return p;
+        }
+
+        // ===================== Validación =====================
+        function validar(p) {
+            const errores = [];
+            const marcar = (id, msg) => {
+                const el = $(id);
+                el.classList.toggle('ring-2', !!msg);
+                el.classList.toggle('ring-red-500', !!msg);
+                let av = $('aviso-' + id);
+                if (!av) {
+                    av = document.createElement('p');
+                    av.id = 'aviso-' + id;
+                    av.className = 'hidden mt-1 text-[11px] font-bold text-red-400 text-left';
+                    (el.parentElement.classList.contains('flex') ? el.parentElement : el).insertAdjacentElement('afterend', av);
+                }
+                av.textContent = msg ? '⚠️ ' + msg : '';
+                av.classList.toggle('hidden', !msg);
+                if (msg) errores.push(msg);
+            };
+            const edadTxt = $('edad').value.trim();
+            marcar('edad', edadTxt === '' || isNaN(p.meses) ? 'Campo vacío.' : (p.meses < 0 || p.anios > 110) ? 'Edad fuera de rango.' : null);
+            const pesoTxt = $('peso').value.trim();
+            marcar('peso', pesoTxt === '' || isNaN(p.peso) ? 'Campo vacío.' : (p.peso < 2 || p.peso > 300) ? 'Peso fuera de rango (2 – 300 kg).' : null);
+            if (p.adulto) {
+                const tTxt = $('talla').value.trim();
+                marcar('talla', tTxt === '' || isNaN(p.talla) ? 'Campo vacío.' : p.talla > 3 ? 'Parece estar en centímetros: escribe la talla en metros (ej. 1.70).' : (p.talla < 1.2 || p.talla > 2.3) ? 'Talla fuera de rango (1.20 – 2.30 m).' : null);
+            } else {
+                marcar('talla', null);
+            }
+            const banner = $('aviso-general');
+            banner.textContent = '⚠️ Revisa los datos del paciente marcados en rojo: las dosis no son confiables.';
+            banner.classList.toggle('hidden', errores.length === 0);
+            return errores.length === 0;
+        }
+
+        function pintarPaciente(p, ok) {
+            $('cont-peso-ideal-ped').classList.toggle('hidden', p.adulto);
+            $('talla').parentElement.classList.toggle('opacity-40', !p.adulto);
+            let pob;
+            if (p.adulto) pob = p.mayor60 ? `Adulto ≥ 60 años` : 'Adulto';
+            else if (p.meses < 1) pob = 'Neonato (< 1 mes): fuera del alcance de la app';
+            else if (p.meses < 12) pob = `Lactante (${fmt(p.meses)} meses)`;
+            else pob = `Pediátrico (${fmt(p.anios)} años)`;
+            $('out-poblacion').textContent = pob + (p.asa34 ? ' · ASA III–IV' : '') + (p.fragil ? ' · frágil' : '');
+
+            if (!ok) { $('out-pesos').innerHTML = ''; $('out-peso-farmaco').innerHTML = ''; return; }
+            const caja = (t, v) => `<div class="bg-slate-950 p-2 rounded border border-slate-800">${t}: <span class="font-bold text-sky-400">${v}</span></div>`;
+            if (p.adulto) {
+                $('out-pesos').innerHTML = caja('IMC', fmt(p.imc)) + caja('Peso ideal', fmt(p.pi) + ' kg') + caja('Peso corregido', fmt(p.pc) + ' kg') + caja('Peso magro', fmt(p.lbw) + ' kg');
+                $('out-peso-farmaco').innerHTML = p.obeso
+                    ? `<p class="font-bold text-amber-400">IMC ≥ 30: cada fármaco usa su peso de dosificación</p>
+                       <p>Propofol (bolo), fentanilo, remifentanilo → magro: <b>${fmt(p.lbw)} kg</b></p>
+                       <p>Ketamina → ideal: <b>${fmt(p.pi)} kg</b></p>
+                       <p>Propofol (infusión), dexmedetomidina → corregido: <b>${fmt(p.pc)} kg</b></p>`
+                    : `<p>IMC &lt; 30: todos los fármacos usan el <b>peso real (${fmt(p.peso)} kg)</b>.</p>`;
+            } else {
+                $('out-pesos').innerHTML = caja('Peso real', fmt(p.peso) + ' kg') + caja('Peso de dosificación', fmt(p.pesoPed) + ' kg');
+                $('out-peso-farmaco').innerHTML = `<p>Pediatría: las dosis usan <b>${fmt(p.pesoPed)} kg</b>${p.obeso ? ' (peso ideal ingresado)' : ''}. Si el niño tiene obesidad, escribe su peso ideal.</p>`;
+            }
+        }
+
+        // ===================== Cálculo por fármaco =====================
+        // Devuelve { lineas: [[etiqueta, html]], ajustes: [txt], notas: [txt], no: motivo }
+        function calcularFarmaco(k, p, act = sel) {
+            const r = { lineas: [], ajustes: [], notas: [], no: null };
+            const c = conc[k];
+            const otros = [...act].filter(x => x !== k);
+            const con = x => x !== k && act.has(x);
+            const opioide = con('fentanilo') || con('remifentanilo');
+            const sedante = con('midazolam') || con('propofol') || con('dexmedetomidina') || con('ketamina');
+            const riesgo60 = p.mayor60 || p.asa34 || p.fragil;
+            const riesgo65 = p.mayor65 || p.asa34 || p.fragil;
+            const ped = !p.adulto;
+
+            // ---------- MIDAZOLAM ----------
+            if (k === 'midazolam') {
+                if (ped && p.meses < 6) { r.no = 'Dosis no establecida en menores de 6 meses (ficha técnica).'; return r; }
+                if (ped && p.anios < 12) {
+                    const w = p.w.real;
+                    const totalKg = p.anios < 6 ? 0.6 : 0.4, totalMax = p.anios < 6 ? 6 : 10;
+                    if (nivel === 'minima') {
+                        r.lineas.push(['Oral', boloKg(0.25, 0.5, 'mg/kg', w, 'mg', null, 1, 15) + ' · 20–30 min antes']);
+                        r.lineas.push(['Intranasal', boloKg(0.2, 0.4, 'mg/kg', w, 'mg', stock.midazolam, 1, 10) + ` (sin diluir, ${stock.midazolam} mg/mL${stock.midazolam < 5 ? ': para IN se prefiere 5 mg/mL' : ''})`]);
+                        r.notas.push('Las dosis oral e intranasal no son intercambiables con la IV. Una dosis de ansiolisis puede producir sedación moderada o profunda.');
+                    } else {
+                        r.lineas.push(['IV inicial', boloKg(0.025, 0.05, 'mg/kg', w, 'mg', c, 1, 2) + ' lento en 2–3 min']);
+                        r.lineas.push(['Repetición', 'Incrementos pequeños tras esperar 2–3 min y reevaluar']);
+                        r.lineas.push(['Máximo total', `${totalKg} mg/kg → <b>${fmt(Math.min(totalKg * w, totalMax))} mg</b> (no suele superar ${totalMax} mg)`]);
+                        r.lineas.push(['IM (alternativa)', boloKg(0.1, 0.15, 'mg/kg', w, 'mg', c, 1, 10)]);
+                        if (opioide || con('ketamina')) r.ajustes.push('Combinado: usar el extremo inferior y solo si hay indicación clínica');
+                        if (nivel === 'profunda') r.notas.push('No es la mejor opción para profundizar: el efecto se acumula y la recuperación es menos predecible.');
+                    }
+                    return r;
+                }
+                // Adulto (y ≥ 12 años: misma pauta en mg)
+                let f = 1;
+                if (opioide) { f = riesgo60 ? 0.5 : 0.7; r.ajustes.push(`Con opioide: −${riesgo60 ? 50 : 30} % (ficha técnica)`); }
+                if (riesgo60) r.ajustes.push(p.mayor60 ? '≥ 60 años: dosis y topes reducidos' : 'ASA III–IV o frágil: dosis y topes reducidos');
+                const topeDosis = (riesgo60 ? 1.5 : 2.5) * f, topeTotal = (riesgo60 ? 3.5 : 5) * f;
+                let ini = nivel === 'moderada' ? [0.5, 2] : [0.5, 1];
+                if (con('ketamina') && !con('propofol')) { ini = [0.5, 1]; r.ajustes.push('Con ketamina: 0.5–1 mg solo si hay indicación (no rutinario)'); }
+                r.lineas.push(['IV inicial', boloFijo(ini[0], ini[1], 'mg', c, f, topeDosis) + ' lento en ≥ 2 min']);
+                r.lineas.push(['Repetición', boloFijo(0.5, 1, 'mg', c, f, riesgo60 ? 1 : topeDosis) + ' cada 2–5 min según respuesta']);
+                r.lineas.push(['Tope', `<b>${fmt(topeDosis)} mg</b> por dosis · <b>${fmt(topeTotal)} mg</b> total habitual`]);
+                if (ped) r.notas.push('12–17 años: pauta como adulto; total habitual ≤ 10 mg (ficha técnica).');
+                if (nivel === 'minima') r.notas.push('Oral (premedicación): 7.5–15 mg; no asumir que producirá solo sedación mínima.');
+                if (nivel === 'profunda') r.notas.push('No es la mejor opción para profundizar: el efecto se acumula y con opioides aumenta el riesgo de apnea.');
+                return r;
+            }
+
+            // ---------- FENTANILO ----------
+            if (k === 'fentanilo') {
+                if (nivel === 'minima') { r.no = 'No indicado para ansiolisis: no es sedante. Úsalo solo si hay dolor (elige sedación moderada).'; return r; }
+                const w = p.w.magro;
+                if (ped) {
+                    if (nivel === 'profunda' || con('propofol')) {
+                        r.lineas.push(['IV', boloKg(0.25, 0.5, 'mcg/kg', w, 'mcg', c, 1, 50) + ' lento']);
+                    } else if (con('midazolam')) {
+                        r.lineas.push(['IV', boloKg(0.5, 0.5, 'mcg/kg', w, 'mcg', c, 1, 50) + ' lento']);
+                    } else {
+                        r.lineas.push(['IV', boloKg(0.5, 1, 'mcg/kg', w, 'mcg', c, 1, 50) + ' lento']);
+                        r.lineas.push(['Intranasal', boloKg(1, 2, 'mcg/kg', w, 'mcg', 50, 1, 100) + ' (sin diluir, 50 mcg/mL)']);
+                    }
+                    r.lineas.push(['Repetición', 'Solo si persiste el dolor, tras reevaluar la ventilación']);
+                    if (sedante) r.ajustes.push('Combinado con sedante: dosis reducida');
+                    r.notas.push('Tope por dosis IV: 50 mcg (CHOP).');
+                    return r;
+                }
+                if (sedante) {
+                    r.lineas.push(['IV inicial', boloKg(0.25, 0.5, 'mcg/kg', w, 'mcg', c) + ' lento']);
+                    r.lineas.push(['Repetición', boloKg(0.25, 0.5, 'mcg/kg', w, 'mcg', c) + ' cada 2–3 min si persiste el dolor']);
+                    r.ajustes.push('Con sedante: máx. 0.5 mcg/kg por dosis (Merck)');
+                } else {
+                    r.lineas.push(['IV inicial', boloKg(0.5, 1, 'mcg/kg', w, 'mcg', c) + ' lento']);
+                    r.lineas.push(['Repetición', boloKg(0.5, 1, 'mcg/kg', w, 'mcg', c) + ' cada 2–3 min según dolor']);
+                }
+                if (p.obeso) r.ajustes.push('Obesidad: peso magro');
+                if (riesgo65 || p.mayor60) r.ajustes.push('Edad avanzada / ASA III–IV / frágil: iniciar en el extremo inferior');
+                if (nivel === 'profunda' && !sedante) r.notas.push('El fentanilo no profundiza la sedación: añade riesgo respiratorio sin beneficio si no hay dolor.');
+                return r;
+            }
+
+            // ---------- PROPOFOL ----------
+            if (k === 'propofol') {
+                if (nivel === 'minima') { r.no = 'No indicado para sedación mínima: puede llevar rápidamente a sedación profunda.'; return r; }
+                if (ped) {
+                    if (p.meses < 6) { r.no = 'No recomendado en menores de 6 meses para sedación (sin dosis establecida).'; return r; }
+                    if (nivel === 'moderada') { r.no = 'En pediatría se reserva para sedación profunda por personal entrenado (elige sedación profunda).'; return r; }
+                    const w = p.w.real;
+                    if (con('ketamina')) {
+                        r.lineas.push(['Ketofol', boloKg(0.5, 0.5, 'mg/kg', w, 'mg', c, 1, 100) + ' + ketamina 0.5 mg/kg']);
+                        r.ajustes.push('Ketofol pediátrico (≥ 6 meses)');
+                    } else if (otros.length) {
+                        r.lineas.push(['IV inicial', boloKg(0.5, 1, 'mg/kg', w, 'mg', c, 1, 100)]);
+                        r.lineas.push(['Repetición', boloKg(0.25, 0.5, 'mg/kg', w, 'mg', c) + ' según respuesta']);
+                        r.ajustes.push('Combinado: rango inicial reducido');
+                    } else {
+                        const ini = p.meses < 24 ? [1, 2] : [0.5, 1];
+                        r.lineas.push(['IV inicial', boloKg(ini[0], ini[1], 'mg/kg', w, 'mg', c, 1, 100) + (p.meses < 24 ? ' (6 m – 2 años)' : ' (> 2 años)')]);
+                        r.lineas.push(['Repetición', boloKg(0.5, 0.5, 'mg/kg', w, 'mg', c) + ' cada 3–5 min']);
+                        if (p.meses < 24) r.lineas.push(['Máximo', `3 mg/kg → <b>${fmt(3 * w)} mg</b> (CGO)`]);
+                    }
+                    if (p.fragil || p.asa34) r.ajustes.push('Frágil / ASA III–IV / cardiopatía: reducir significativamente');
+                    r.notas.push('Tope por dosis inicial: 100 mg (CHOP). Puede producir apnea e hipotensión.');
+                    return r;
+                }
+                const wB = p.w.magro, wI = p.w.corregido;
+                const f = riesgo65 ? 0.8 : 1;
+                if (riesgo65) r.ajustes.push((p.mayor65 ? '> 65 años' : 'ASA III–IV o frágil') + ': 80 % de la dosis, sin bolos rápidos');
+                if (p.obeso) r.ajustes.push('Obesidad: bolo por peso magro, infusión por peso corregido');
+                const combinado = otros.length > 0;
+                if (con('ketamina')) {
+                    r.lineas.push(['Ketofol', boloKg(0.25, 0.5, 'mg/kg', wB, 'mg', c, f) + ' + ketamina 0.25–0.5 mg/kg']);
+                    r.ajustes.push('Ketofol: dosis inferiores a las de cada fármaco solo');
+                } else if (nivel === 'moderada' || combinado) {
+                    r.lineas.push(['IV inicial', boloKg(0.25, 0.5, 'mg/kg', wB, 'mg', c, f) + ' lento']);
+                    if (combinado) r.ajustes.push('Combinado: rango inicial bajo');
+                } else {
+                    r.lineas.push(['IV inicial', boloKg(0.5, 1, 'mg/kg', wB, 'mg', c, f) + ' lento en 3–5 min']);
+                }
+                if (nivel === 'profunda' && !combinado) r.lineas.push(['Repetición', boloKg(0.25, 0.5, 'mg/kg', wB, 'mg', c, f) + ' cada 1–3 min']);
+                else r.lineas.push(['Repetición', `Incrementos de <b>${rango(10 * f, 20 * f)} mg</b> · ${rango(10 * f / c, 20 * f / c)} mL según respuesta`]);
+                r.lineas.push(['Infusión', infMin(25, 75, wI, c, f, true) + (nivel === 'moderada' ? ' (titular en el extremo bajo)' : '')]);
+                r.notas.push('Sin efecto analgésico: si el procedimiento duele, añade una estrategia analgésica.');
+                return r;
+            }
+
+            // ---------- KETAMINA ----------
+            if (k === 'ketamina') {
+                if (ped && p.meses < 3) { r.no = 'Contraindicada en menores de 3 meses (ACEP).'; return r; }
+                if (nivel === 'minima') { r.no = 'No indicada para ansiolisis (elige sedación moderada para analgesia o profunda para disociación).'; return r; }
+                const w = p.w.ideal;
+                if (ped && p.meses < 12) r.ajustes.push('3–12 meses: contraindicación relativa (ACEP)');
+                if (p.obeso) r.ajustes.push(p.adulto ? 'Obesidad: peso ideal' : 'Peso ideal ingresado');
+                if (nivel === 'moderada') {
+                    r.lineas.push(['IV subdisociativa', boloKg(0.1, 0.3, 'mg/kg', w, 'mg', c) + ' (analgesia)']);
+                    r.lineas.push(['Repetición', 'Incrementos pequeños según dolor y respuesta']);
+                    r.notas.push('En este rango predomina la analgesia; no garantiza sedación moderada.');
+                    return r;
+                }
+                if (con('propofol')) {
+                    r.lineas.push(['Ketofol', ped ? boloKg(0.5, 0.5, 'mg/kg', w, 'mg', c) + ' + propofol 0.5 mg/kg' : boloKg(0.25, 0.5, 'mg/kg', w, 'mg', c) + ' + propofol 0.25–0.5 mg/kg']);
+                    r.notas.push('Mezcla 1:1 o por separado; identifica claramente las concentraciones. Ketofol no elimina el riesgo respiratorio.');
+                    return r;
+                }
+                if (ped) {
+                    if (con('midazolam')) r.lineas.push(['IV', boloKg(1, 1, 'mg/kg', w, 'mg', c, 1, 100) + ' en 30–60 s']);
+                    else r.lineas.push(['IV inicial', boloKg(1, 2, 'mg/kg', w, 'mg', c, 1, 100) + ' en 30–60 s']);
+                    r.lineas.push(['Repetición IV', boloKg(0.5, 1, 'mg/kg', w, 'mg', c) + ' cada 5–10 min si se necesita']);
+                    r.lineas.push(['IM', boloKg(4, 5, 'mg/kg', w, 'mg', c, 1, 200) + ' · repetir 2–2.5 mg/kg a los 10 min']);
+                    r.notas.push('Topes iniciales: 100 mg IV y 200 mg IM (CHOP). Vigilar laringoespasmo, vómitos y fenómenos de emergencia.');
+                    return r;
+                }
+                if (con('midazolam')) {
+                    r.lineas.push(['IV inicial', boloKg(0.5, 1, 'mg/kg', w, 'mg', c) + ' lenta']);
+                    r.ajustes.push('Con midazolam: 0.5–1 mg/kg');
+                } else if (riesgo65 || sedante) {
+                    r.lineas.push(['IV inicial', boloKg(0.25, 0.5, 'mg/kg', w, 'mg', c) + ' en 30–60 s']);
+                    r.ajustes.push((riesgo65 ? 'Edad avanzada / ASA III–IV / frágil' : 'Con otro sedante') + ': 0.25–0.5 mg/kg (Merck)');
+                } else {
+                    r.lineas.push(['IV inicial', boloKg(1, 1.5, 'mg/kg', w, 'mg', c) + ' en 30–60 s (no más rápido)']);
+                }
+                r.lineas.push(['Repetición IV', boloKg(0.5, 0.75, 'mg/kg', w, 'mg', c) + ' tras ~10 min si persiste la necesidad']);
+                r.lineas.push(['IM (alternativa)', boloKg(4, 5, 'mg/kg', w, 'mg', c) + ' · repetir 2–2.5 mg/kg a los 5–10 min']);
+                r.notas.push('Puede producir laringoespasmo, hipersalivación y reacciones de emergencia. No añadir midazolam de forma rutinaria.');
+                return r;
+            }
+
+            // ---------- DEXMEDETOMIDINA ----------
+            if (k === 'dexmedetomidina') {
+                if (ped && p.meses < 1) { r.no = 'No establecida en menores de 1 mes.'; return r; }
+                const w = p.w.corregido;
+                const carga = $('dexCarga').checked;
+                if (ped) {
+                    if (nivel !== 'profunda') r.lineas.push(['Intranasal', boloKg(2, 3, 'mcg/kg', w, 'mcg', 100, 1, 200) + ' (sin diluir, presentación de 100 mcg/mL) · efecto en 10–20 min; +1 mcg/kg si se necesita']);
+                    if (nivel !== 'minima') {
+                        if (carga) r.lineas.push(['Carga IV', boloKg(p.meses < 24 ? 1.5 : 2, p.meses < 24 ? 1.5 : 2, 'mcg/kg', w, 'mcg', c) + ' en 10 min']);
+                        r.lineas.push(['Infusión IV', infHora(0.5, 1.5, w, c) + ' (iniciar en el extremo bajo)']);
+                    }
+                    r.notas.push((nivel !== 'profunda' ? 'Total intranasal máx. 4 mcg/kg o 250 mcg (CHOP). ' : '') + 'Vigilar bradicardia e hipotensión.');
+                    if (nivel === 'profunda') r.notas.push('No garantiza sedación profunda.');
+                    return r;
+                }
+                if (p.obeso) r.ajustes.push('Obesidad: peso corregido');
+                if (carga) {
+                    const dosisCarga = (p.mayor65 || nivel === 'minima') ? 0.5 : 1;
+                    if (dosisCarga === 0.5) r.ajustes.push((p.mayor65 ? '> 65 años' : 'Procedimiento menor') + ': carga 0.5 mcg/kg');
+                    const mcg = dosisCarga * w;
+                    r.lineas.push(['Carga IV', `${dosisCarga} mcg/kg → <b>${fmt(mcg)} mcg</b> · ${fmt(mcg / c)} mL en 10 min = <b>${fmt(mcg / c * 6)} mL/h</b>`]);
+                    r.lineas.push(['Mantenimiento', infHora(0.6, 0.6, w, c) + ' inicial · rango ' + infHora(0.2, 1, w, c)]);
+                    if (p.mayor65) r.ajustes.push('> 65 años: considerar reducir el mantenimiento');
+                    r.notas.push('La carga rápida aumenta el riesgo de bradicardia e hipertensión transitoria seguida de hipotensión.');
+                } else {
+                    if (con('propofol')) { r.lineas.push(['Infusión', infHora(0.2, 0.4, w, c)]); r.ajustes.push('Con propofol: 0.2–0.4 mcg/kg/h'); }
+                    else if (nivel === 'minima') r.lineas.push(['Infusión', infHora(0.2, 0.5, w, c) + ' sin carga']);
+                    else { r.lineas.push(['Inicio', infHora(0.2, 0.5, w, c) + ' sin carga']); r.lineas.push(['Mantenimiento', infHora(0.2, 0.7, w, c)]); }
+                    r.notas.push('Inicio lento: sin carga tarda más en hacer efecto, con menos cambios hemodinámicos.');
+                }
+                if (nivel === 'profunda') r.notas.push('No es adecuada para conseguir rápidamente sedación profunda.');
+                return r;
+            }
+
+            // ---------- REMIFENTANILO ----------
+            if (k === 'remifentanilo') {
+                if (ped) { r.no = 'Sin dosis establecidas para sedación procedimental pediátrica.'; return r; }
+                if (nivel === 'minima') { r.no = 'No indicado para ansiolisis.'; return r; }
+                const w = p.w.magro;
+                let fIni = 1;
+                if (sedante) { fIni *= 0.5; r.ajustes.push('Con sedante: dosis a la mitad (ficha técnica)'); }
+                if (p.mayor65) { fIni *= 0.5; r.ajustes.push('> 65 años: −50 % de la dosis inicial'); }
+                if (p.obeso) r.ajustes.push('Obesidad: peso magro');
+                r.lineas.push(['Inicio', infMin(0.1, 0.1, w, c, fIni) + ' (5 min antes del estímulo)']);
+                r.lineas.push(['Mantenimiento', infMin(sedante ? 0.025 : 0.05, sedante ? 0.025 : 0.05, w, c) + ' · rango 0.025–0.2 mcg/kg/min']);
+                r.lineas.push(['Ajustes', 'Cambios de 0.025 mcg/kg/min cada 5 min']);
+                r.notas.push('Dosis > 0.2 mcg/kg/min se asocian a depresión respiratoria. Evitar bolos rápidos; exige capacidad inmediata para ventilar.');
+                return r;
+            }
+            return r;
+        }
+
+        // ===================== Sedación: pintar =====================
+        function pintarSedacion(p, ok) {
+            ['minima', 'moderada', 'profunda'].forEach(n => {
+                $('btn-nivel-' + n).className = 'py-2 rounded-lg font-bold ' + (n === nivel ? 'bg-sky-500 text-slate-950' : 'bg-slate-950 text-slate-400 border border-slate-800');
+            });
+            $('out-nivel-desc').textContent = NIVELES[nivel].desc;
+            $('out-nivel-sugeridos').innerHTML = '<b class="text-sky-400">Sugeridos:</b> ' + (p.adulto ? NIVELES[nivel].ad : NIVELES[nivel].ped);
+
+            $('out-presets').innerHTML = PRESETS.map((pr, i) => {
+                const activo = pr.f.length === sel.size && pr.f.every(x => sel.has(x));
+                return `<button onclick="aplicarPreset(${i})" class="px-2 py-1 rounded-full font-bold ${activo ? 'bg-sky-500 text-slate-950' : 'bg-slate-950 text-slate-300 border border-slate-700'}">${pr.n}</button>`;
+            }).join('');
+
+            $('out-farmacos').innerHTML = Object.keys(FARMACOS).map(k => `
+                <label class="flex items-center gap-2 p-2 rounded-lg border cursor-pointer ${sel.has(k) ? 'border-sky-500 bg-sky-950/40' : 'border-slate-800 bg-slate-950'}">
+                    <input type="checkbox" class="accent-sky-500 w-4 h-4" ${sel.has(k) ? 'checked' : ''} onchange="alternarFarmaco('${k}')">
+                    <span class="font-bold">${FARMACOS[k].nombre}</span>
+                </label>`).join('');
+
+            const comb = $('out-combinacion');
+            if (sel.size >= 3) { comb.textContent = '⚠️ Combinar 3 o más fármacos aumenta el riesgo de eventos adversos: introdúcelos de forma secuencial y valora si realmente necesitas cada uno.'; comb.classList.remove('hidden'); }
+            else if (sel.size === 0) { comb.textContent = 'Elige al menos un fármaco.'; comb.classList.remove('hidden'); }
+            else comb.classList.add('hidden');
+
+            if (!ok) { $('out-tarjetas').innerHTML = '<section class="p-4 rounded-xl bg-red-950/60 border border-red-500/50 text-xs text-red-200 font-bold text-center">Completa correctamente los datos del paciente para ver las dosis.</section>'; return; }
+            if (!p.adulto && p.meses < 1) { $('out-tarjetas').innerHTML = '<section class="p-4 rounded-xl bg-red-950/60 border border-red-500/50 text-xs text-red-200 font-bold text-center">Neonatos (&lt; 1 mes): fuera del alcance de AnesteSed. Sigue un protocolo neonatal específico.</section>'; return; }
+
+            // Solo los fármacos aplicables en este nivel cuentan para los ajustes por combinación
+            const activos = new Set([...sel].filter(k => !calcularFarmaco(k, p, new Set([k])).no));
+            $('out-tarjetas').innerHTML = [...sel].map(k => {
+                const d = FARMACOS[k], r = calcularFarmaco(k, p, activos);
+                const bloqueConc = htmlConcentracion(k);
+                const cuerpo = r.no
+                    ? `<p class="p-2 rounded-lg bg-amber-950/40 border border-amber-500/40 text-amber-400 font-bold">${r.no}</p>`
+                    : r.lineas.map(([e, h]) => `<div class="bg-slate-950 p-2 rounded border border-slate-800"><span class="text-slate-400">${e}:</span> <span class="text-slate-100">${h}</span></div>`).join('')
+                      + (r.ajustes.length ? `<div class="flex flex-wrap gap-1">${r.ajustes.map(a => `<span class="px-2 py-0.5 rounded-full bg-sky-950/40 border border-sky-500/40 text-sky-300 font-bold">${a}</span>`).join('')}</div>` : '')
+                      + r.notas.map(n => `<p class="text-slate-400 leading-relaxed">• ${n}</p>`).join('');
+                return `<section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-2">
+                    <h2 class="text-sm font-black text-sky-400 border-b border-slate-800 pb-1">${d.nombre}</h2>
+                    <p class="text-[11px] text-slate-500">${d.tipo}</p>
+                    ${r.no ? '' : bloqueConc}
+                    ${cuerpo}
+                </section>`;
+            }).join('');
+        }
+
+        // ===================== Antídotos =====================
+        function pintarAntidotos(p, ok) {
+            if (!ok) { $('out-antidotos').innerHTML = '<section class="p-4 rounded-xl bg-red-950/60 border border-red-500/50 text-xs text-red-200 font-bold text-center">Completa correctamente los datos del paciente para ver las dosis.</section>'; return; }
+            const w = p.adulto ? p.peso : p.w.real;
+            const tarjeta = (titulo, tipo, filas, notas) => `<section class="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-xl text-xs space-y-2">
+                <h2 class="text-sm font-black text-sky-400 border-b border-slate-800 pb-1">${titulo}</h2>
+                <p class="text-[11px] text-slate-500">${tipo}</p>
+                ${filas.map(([e, h]) => `<div class="bg-slate-950 p-2 rounded border border-slate-800"><span class="text-slate-400">${e}:</span> <span class="text-slate-100">${h}</span></div>`).join('')}
+                ${notas.map(n => `<p class="text-slate-400 leading-relaxed">• ${n}</p>`).join('')}
+            </section>`;
+            let nal, flu;
+            if (p.anios >= 12) {
+                nal = tarjeta('Naloxona', 'Antagonista opioide · ampolla 0.4 mg/mL', [
+                    ['Dosis IV', '<b>0.1–0.2 mg</b> · 0.25–0.5 mL sin diluir, o 2.5–5 mL diluida (1 mL + 9 mL = 0.04 mg/mL)'],
+                    ['Repetición', 'Cada 1–2 min, titulando hasta revertir la depresión respiratoria sin revertir toda la analgesia'],
+                    ['Máximo', '2 mg en total; si no hay respuesta, reconsiderar el diagnóstico']
+                ], ['Duración 30–90 min: vigilar la re-narcotización.']);
+            } else if (p.meses >= 1) {
+                const lo = 0.001 * w, hi = Math.min(0.01 * w, 0.2);
+                nal = tarjeta('Naloxona', 'Antagonista opioide · ampolla 0.4 mg/mL', [
+                    ['Dosis IV', `1–10 mcg/kg → <b>${fmt(lo * 1000)}–${fmt(hi * 1000)} mcg</b> · ${rango(lo / 0.04, hi / 0.04)} mL diluida a 0.04 mg/mL (máx. 200 mcg/dosis)`],
+                    ['Repetición', 'Cada 1–2 min según respuesta'],
+                    ['Máximo', '2 mg en total']
+                ], ['Iniciar en el extremo bajo para revertir la depresión respiratoria sin quitar toda la analgesia.']);
+            } else {
+                nal = tarjeta('Naloxona', 'Antagonista opioide', [], ['Menores de 1 mes: seguir protocolo neonatal.']);
+            }
+            if (p.anios >= 18) {
+                flu = tarjeta('Flumazenil', 'Antagonista benzodiacepínico · ampolla 0.1 mg/mL', [
+                    ['Dosis IV', '<b>0.2 mg</b> · 2 mL en 15 s'],
+                    ['Repetición', '0.2 mg cada 60 s si se necesita'],
+                    ['Máximo', '<b>1 mg</b> en total (5 dosis)']
+                ], ['Riesgo de convulsiones en pacientes con uso crónico de benzodiacepinas o epilepsia.', 'Duración menor que la del midazolam: vigilar re-sedación.']);
+            } else if (p.anios >= 1) {
+                const d = Math.min(0.01 * w, 0.2), tot = Math.min(0.05 * w, 1);
+                flu = tarjeta('Flumazenil', 'Antagonista benzodiacepínico · ampolla 0.1 mg/mL', [
+                    ['Dosis IV', `0.01 mg/kg → <b>${fmt(d)} mg</b> · ${fmt(d / 0.1)} mL en 15 s (máx. 0.2 mg)`],
+                    ['Repetición', 'Cada 60 s si se necesita'],
+                    ['Máximo', `0.05 mg/kg o 1 mg (el menor) → <b>${fmt(tot)} mg</b>`]
+                ], ['Riesgo de convulsiones con uso crónico de benzodiacepinas.']);
+            } else {
+                flu = tarjeta('Flumazenil', 'Antagonista benzodiacepínico', [], ['Menores de 1 año: seguridad y eficacia no establecidas (ficha técnica).']);
+            }
+            $('out-antidotos').innerHTML = nal + flu;
+        }
+
+        // ===================== Control =====================
+        function calcular() {
+            const p = leerPaciente();
+            const ok = validar(p);
+            pintarPaciente(p, ok);
+            pintarSedacion(p, ok);
+            pintarAntidotos(p, ok);
+        }
+        function cambiarTab(t) {
+            tabActual = t;
+            ['paciente', 'sedacion', 'antidotos', 'fuentes'].forEach(x => {
+                $('tab-' + x).classList.toggle('hidden', x !== t);
+                $('btn-tab-' + x).className = 'py-2 rounded-lg text-center transition-all ' + (x === t ? 'bg-sky-500 text-slate-950' : 'text-slate-400 hover:text-slate-200');
+            });
+            window.scrollTo(0, 0);
+        }
+        function elegirNivel(n) { nivel = n; calcular(); }
+        function alternarFarmaco(k) { sel.has(k) ? sel.delete(k) : sel.add(k); calcular(); }
+        function aplicarPreset(i) { sel.clear(); PRESETS[i].f.forEach(x => sel.add(x)); calcular(); }
+        function cambiarStock(k, v) {
+            stock[k] = parseFloat(v);
+            const d = FARMACOS[k];
+            if (!d.polvo && typeof modo[k] === 'number' && modo[k] >= stock[k]) modo[k] = 'stock';
+            conc[k] = concUsable(k); calcular();
+        }
+        function cambiarModo(k, v) {
+            modo[k] = (v === 'stock' || v === 'custom') ? v : parseFloat(v);
+            conc[k] = concUsable(k); calcular();
+        }
+        function cambiarCustom(k, v) {
+            const x = parseFloat(v);
+            if (x > 0) custom[k] = x;
+            conc[k] = concUsable(k); calcular();
+        }
+
+        // Bloque de presentación, dilución y preparación de cada fármaco
+        function htmlConcentracion(k) {
+            const d = FARMACOS[k], u = d.u, st = stock[k], c = resolverConc(k);
+            const selCls = 'w-full bg-slate-950 border border-slate-700 rounded-lg p-1.5 text-[11px] text-slate-200';
+            const optStock = d.stock.map(([v, t]) => `<option value="${v}" ${st == v ? 'selected' : ''}>${t}</option>`).join('');
+            let optModo = d.polvo ? '' : `<option value="stock" ${modo[k] === 'stock' ? 'selected' : ''}>Sin diluir (${st} ${u}/mL)</option>`;
+            optModo += d.dil.filter(v => d.polvo || v < st).map(v => `<option value="${v}" ${modo[k] === v ? 'selected' : ''}>${v} ${u}/mL</option>`).join('');
+            optModo += `<option value="custom" ${modo[k] === 'custom' ? 'selected' : ''}>Otra concentración…</option>`;
+            const inputCustom = modo[k] === 'custom'
+                ? `<div class="flex items-center gap-2"><input type="number" step="any" value="${custom[k]}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg p-1.5 text-center text-white" onchange="cambiarCustom('${k}', this.value)"><span class="text-slate-400">${u}/mL</span></div>`
+                : '';
+            let prep;
+            if (!(c > 0)) prep = '<span class="text-red-400 font-bold">Escribe una concentración válida.</span>';
+            else if (d.polvo) {
+                const vol = st * 1000 / c;
+                prep = `Reconstituir el vial de <b>${st} mg</b> y llevar a <b>${fmt(vol)} mL</b> de SS 0.9 % → <b>${fmt(c)} mcg/mL</b>`;
+            } else if (Math.abs(c - st) < 1e-9) prep = `Usar <b>sin diluir</b> (${fmt(st)} ${u}/mL)`;
+            else if (c > st) prep = `<span class="text-red-400 font-bold">La concentración final no puede ser mayor que la presentación (${fmt(st)} ${u}/mL).</span>`;
+            else {
+                const vf = c * d.jer / st;
+                prep = `Cargar <b>${fmt(vf)} mL</b> de la presentación + <b>${fmt(d.jer - vf)} mL</b> de SS 0.9 % = ${d.jer} mL a <b>${fmt(c)} ${u}/mL</b>`;
+            }
+            return `<div class="p-2 rounded-lg bg-sky-950/40 border border-sky-500/40 space-y-1.5">
+                <div class="grid grid-cols-2 gap-2">
+                    <div><p class="text-[10px] text-slate-400 mb-0.5">Presentación</p><select class="${selCls}" onchange="cambiarStock('${k}', this.value)">${optStock}</select></div>
+                    <div><p class="text-[10px] text-slate-400 mb-0.5">${d.polvo ? 'Concentración final' : 'Dilución que usas'}</p><select class="${selCls}" onchange="cambiarModo('${k}', this.value)">${optModo}</select></div>
+                </div>
+                ${inputCustom}
+                <p class="text-slate-300 leading-relaxed">🧪 ${prep}</p>
+                <p class="text-[10px] text-slate-400">${conc[k] > 0 ? `Los mL de abajo corresponden a <b class="text-sky-300">${fmt(conc[k])} ${u}/mL</b>.` : '<b class="text-red-400">Sin volúmenes hasta corregir la concentración.</b>'}</p>
+            </div>`;
+        }
+
+        // ===================== Instalación (PWA) =====================
+        let eventoInstalar = null;
+        const esStandalone = () => window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+        const esIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        function mostrarBotonInstalar(v) { const b = $('btn-instalar'); b.classList.toggle('hidden', !v); b.classList.toggle('flex', v); }
+        window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); eventoInstalar = e; if (!esStandalone()) mostrarBotonInstalar(true); });
+        window.addEventListener('appinstalled', () => { eventoInstalar = null; mostrarBotonInstalar(false); });
+        if (esIOS && !esStandalone()) mostrarBotonInstalar(true);
+        async function instalarApp() {
+            if (eventoInstalar) { eventoInstalar.prompt(); await eventoInstalar.userChoice; eventoInstalar = null; mostrarBotonInstalar(false); }
+            else if (esIOS) $('ayuda-ios').classList.toggle('hidden');
+        }
+
+        cambiarTab('paciente');
+        calcular();
+    </script>
+    <script>
+        if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+            window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+        }
+    </script>
+</body>
+</html>
