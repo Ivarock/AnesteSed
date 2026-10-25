@@ -1,6 +1,6 @@
 // AnesteSed — Service Worker (modo sin conexión)
 // Al publicar cambios en la app, sube el número de versión para que los teléfonos descarguen la nueva.
-const VERSION = 'anestesed-v1';
+const VERSION = 'anestesed-v2';
 const ARCHIVOS = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png', 'icon-maskable-512.png'];
 
 self.addEventListener('install', (e) => {
